@@ -104,11 +104,6 @@ short cube_is_solved() {
     return 1;
 }
 
-void end() {
-    while(1)
-        getchar();
-}
-
 int main(void) {
     printf(
         "       ----- \n"
@@ -161,13 +156,13 @@ int main(void) {
     if(w != 4 || g != 4 || o != 4 || b != 4 || r != 4 || y != 4) {
         printf("Bad cube pattern!\n");
         
-        end();
+        return -1;
     }
     
     if(cube_is_solved()) {
         printf("Cube is allready solved!\n");
         
-        end();
+        return -1;
     }
     
     printf("Trying to solve in 1 move...\n");
@@ -187,7 +182,7 @@ int main(void) {
             if(max_moves > 23) {
                 printf("Bad cube pattern!\n");
                 
-                end();
+                return -1;
             }
             
             moves = realloc(moves, max_moves * sizeof(short));
@@ -238,7 +233,7 @@ int main(void) {
             
             printf("\n");
             
-            end();
+            return -1;
         }
 
         cube_restore();
@@ -247,43 +242,4 @@ int main(void) {
     }
 }
 
-/*if(cnt % 500000 == 0) {
-    printf("%d - ", cnt);
 
-    for(short ii = 0; ii < i; ii++) {
-        switch(moves[ii]) {
-        case 0:
-            printf("F ");
-            break;
-        case 1:
-            printf("U ");
-            break;
-        case 2:
-            printf("R ");
-            break;
-        }
-    }
-
-    printf("\n");
-}*/
-
-/*for(int i = 0; i < 4; i++)
-    cube[0][i] = 'w';
-
-for(int i = 0; i < 4; i++)
-    cube[1][i] = 'g';
-
-for(int i = 0; i < 4; i++)
-    cube[2][i] = 'y';
-
-for(int i = 0; i < 4; i++)
-    cube[3][i] = 'b';
-
-for(int i = 0; i < 4; i++)
-    cube[4][i] = 'r';
-
-for(int i = 0; i < 4; i++)
-    cube[5][i] = 'o';*/
-
-/*for(int i = 0; i < 6; i++)
-    printf("%c %c %c %c\n", cube[i][0], cube[i][1], cube[i][2], cube[i][3]);*/
