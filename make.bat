@@ -1,0 +1,1 @@
+gcc main.c -o rubiks_solver -std=c11 -O3
